@@ -1,0 +1,952 @@
+/* =========================================================
+   Trauma-Informed Massage Therapy — landing page
+   No JavaScript. Buttons are intentionally non-functional.
+   ========================================================= */
+
+:root {
+    --cream: #f5f1e8;
+    --cream-light: #fff;
+    --green: #28462d;
+    --green-dark: #1d3522;
+    --green-soft: #53684e;
+    --brown: #895333;
+    --gold: #a36a43;
+    --text: #17231b;
+    --muted: #596057;
+    --border: #d5cec0;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #fff;
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.page {
+    width: min(1400px, 100%);
+    margin: 0 auto;
+    background: var(--cream);
+    overflow: hidden;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+    min-height: 545px;
+    display: grid;
+    grid-template-columns: 54% 46%;
+    background:
+        radial-gradient(circle at 18% 80%, rgba(139, 107, 71, .06), transparent 30%),
+        var(--cream-light);
+}
+
+.hero-content {
+    padding: 34px 35px 28px 54px;
+    position: relative;
+    z-index: 2;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.brand-mark {
+    width: 90px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+    font-size: 54px;
+    transform: rotate(-15deg);
+}
+
+.brand-name {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 3.2vw, 52px);
+    letter-spacing: 5px;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.brand-subtitle {
+    margin-top: 10px;
+    color: var(--brown);
+    letter-spacing: 4px;
+    font-size: 18px;
+}
+
+.hero-copy h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(50px, 5.2vw, 77px);
+    line-height: .99;
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+.gold-line {
+    width: 255px;
+    height: 2px;
+    background: var(--gold);
+    margin: 27px 0 17px;
+}
+
+.lead {
+    max-width: 650px;
+    margin: 0;
+    font-size: 23px;
+    line-height: 1.35;
+}
+
+.hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.circle-icon {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: var(--green);
+    color: white;
+    border: 4px solid #ecede7;
+    outline: 1px solid var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    flex: 0 0 auto;
+}
+
+.stat strong,
+.stat span {
+    display: block;
+}
+
+.stat strong {
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.stat span {
+    font-size: 17px;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 70px;
+    background: #a49d90;
+}
+
+.hero-visual {
+    position: relative;
+    min-height: 545px;
+}
+
+.large-photo {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(145deg, #c7bca7, #b0a58f 48%, #9b907b);
+    color: white;
+    font-size: 28px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.quote-badge {
+    position: absolute;
+    left: -75px;
+    top: 55px;
+    width: 255px;
+    height: 255px;
+    border-radius: 50%;
+    background: rgba(249, 247, 239, .94);
+    border: 3px double var(--green-soft);
+    outline: 1px solid rgba(83, 104, 78, .35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 35px;
+    line-height: 1.55;
+    font-size: 17px;
+    z-index: 3;
+}
+
+/* ---------- FEATURE STRIP ---------- */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background: var(--green);
+    color: white;
+    padding: 16px 10px;
+}
+
+.feature {
+    min-height: 180px;
+    padding: 10px 20px 15px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,.65);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature:last-child {
+    border-right: 0;
+}
+
+.feature-icon {
+    font-size: 51px;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.feature h3 {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.2;
+}
+
+.feature p {
+    margin: 12px 0 0;
+    max-width: 220px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* ---------- INFORMATION ---------- */
+
+.information {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr .95fr;
+    gap: 0;
+    padding: 18px 48px 20px;
+    background: var(--cream-light);
+}
+
+.info-column {
+    padding: 5px 35px 10px 0;
+}
+
+.learning {
+    border-right: 1px solid #cfc8ba;
+    padding-right: 38px;
+}
+
+.details {
+    padding-left: 35px;
+    border-right: 0;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 11px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 19px;
+    letter-spacing: .3px;
+}
+
+.leaf {
+    color: var(--green);
+    font-size: 27px;
+}
+
+.learning ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.learning li {
+    position: relative;
+    padding-left: 22px;
+    margin: 8px 0;
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+.learning li::before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--green-soft);
+    font-size: 9px;
+}
+
+.detail-item {
+    display: flex;
+    gap: 13px;
+    margin: 10px 0;
+}
+
+.detail-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    flex: 0 0 43px;
+    background: var(--green);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.detail-item strong {
+    font-size: 15px;
+    display: block;
+    margin-top: 3px;
+}
+
+.detail-item p {
+    margin: 3px 0 0;
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+/* ---------- CONTACT CARD ---------- */
+
+.contact-card {
+    border: 1px solid #aaa18f;
+    border-radius: 14px;
+    margin: 0 0 0 25px;
+    padding: 19px 25px 20px;
+    min-height: 275px;
+    background:
+        radial-gradient(circle at 95% 100%, rgba(75, 96, 70, .12), transparent 35%),
+        #f7f4eb;
+}
+
+.contact-card h2 {
+    text-align: center;
+    font-size: 18px;
+    margin: 0;
+}
+
+.small-line {
+    width: 75%;
+    height: 1px;
+    background: #aaa18f;
+    margin: 11px auto 14px;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.contact-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--green);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 37px;
+    flex: 0 0 auto;
+}
+
+.contact-row p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+.contact-button {
+    display: block;
+    margin: 17px auto 13px;
+    border: 0;
+    background: var(--brown);
+    color: white;
+    padding: 11px 28px;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: default;
+}
+
+.script-text {
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+    color: #394938;
+    font-size: 28px;
+    line-height: .95;
+    text-align: right;
+    padding-right: 12px;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    text-align: center;
+    padding: 5px 25px 12px;
+    background: var(--cream-light);
+}
+
+.footer-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+
+.footer-line {
+    width: 600px;
+    max-width: 80%;
+    height: 1px;
+    background: var(--gold);
+    margin: 7px auto 2px;
+}
+
+.footer-script {
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+    color: var(--brown);
+    font-size: 24px;
+}
+/* =========================================================
+   CONTACT MODAL
+   ========================================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(15, 25, 18, 0.58);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0s linear 0.25s;
+}
+
+
+/* Когда окно открыто */
+
+.modal-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0s linear 0s;
+}
+
+
+/* Само модальное окно */
+
+.contact-modal {
+    position: relative;
+
+    width: min(520px, 100%);
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 34px 36px 30px;
+
+    background: var(--cream-light);
+
+    border: 1px solid #c5bcaa;
+    border-radius: 16px;
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.25);
+
+    /* Начальное положение для анимации */
+    transform: translateY(35px) scale(0.94);
+    opacity: 0;
+
+    transition:
+        transform 0.35s cubic-bezier(.2, .8, .2, 1),
+        opacity 0.25s ease;
+}
+
+
+/* Анимация появления */
+
+.modal-overlay.is-open .contact-modal {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+
+/* Заголовок */
+
+.contact-modal h2 {
+    margin: 0;
+
+    color: var(--green-dark);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 34px;
+}
+
+
+/* Описание */
+
+.modal-description {
+    margin: 7px 0 24px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+    line-height: 1.45;
+}
+
+
+/* Кнопка X */
+
+.modal-close {
+    position: absolute;
+
+    top: 12px;
+    right: 16px;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Две линии крестика */
+
+.modal-close::before,
+.modal-close::after {
+    content: "";
+
+    position: absolute;
+
+    width: 22px;
+    height: 2px;
+
+    background: var(--green);
+
+    left: 50%;
+    top: 50%;
+
+    transform-origin: center;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Первая линия */
+
+.modal-close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+
+/* Вторая линия */
+
+.modal-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+/* Фон кнопки */
+
+.modal-close:hover {
+    background: rgba(40, 70, 45, 0.09);
+}
+
+
+/* Анимация */
+
+.modal-close:hover::before {
+    transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.modal-close:hover::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+
+/* Группа поля */
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+
+/* Название поля */
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--green-dark);
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* Input и textarea */
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    padding: 12px 13px;
+
+    border: 1px solid #c9c1b2;
+    border-radius: 7px;
+
+    background: #fffdf8;
+
+    color: var(--text);
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Поле активно */
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--green-soft);
+
+    box-shadow:
+        0 0 0 3px rgba(83, 104, 78, 0.13);
+}
+
+
+/* Textarea */
+
+.form-group textarea {
+    min-height: 110px;
+
+    resize: vertical;
+}
+
+
+/* Placeholder */
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9b978d;
+}
+
+
+/* Контейнер кнопок */
+
+.modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 11px;
+
+    margin-top: 23px;
+}
+
+
+/* Общие стили кнопок */
+
+.modal-actions button {
+    min-width: 105px;
+
+    padding: 11px 22px;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.modal-actions button:hover {
+    transform: translateY(-1px);
+}
+
+
+/* Send */
+
+.send-button {
+    border: 1px solid var(--green);
+
+    background: var(--green);
+
+    color: white;
+}
+
+
+.send-button:hover {
+    background: var(--green-dark);
+
+    box-shadow:
+        0 5px 15px rgba(29, 53, 34, 0.18);
+}
+
+
+/* Пока окно открыто — страницу нельзя прокручивать */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        padding-right: 40px;
+    }
+
+    .hero-visual {
+        min-height: 420px;
+    }
+
+    .quote-badge {
+        left: 35px;
+        top: 30px;
+    }
+
+    .information {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-card {
+        grid-column: 1 / -1;
+        margin: 25px 0 0;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .hero-copy h1 {
+        font-size: 52px;
+    }
+
+    .lead {
+        font-size: 19px;
+    }
+
+    .features {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .feature {
+        border-bottom: 1px solid rgba(255,255,255,.5);
+    }
+
+    .feature:nth-child(2n) {
+        border-right: 0;
+    }
+
+    .information {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    .learning {
+        border-right: 0;
+        border-bottom: 1px solid #cfc8ba;
+        padding: 0 0 22px;
+    }
+
+    .details {
+        padding: 22px 0 0;
+    }
+
+    .contact-card {
+        grid-column: auto;
+    }
+
+    .footer-title {
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+}
+
+
+@media (max-width: 560px) {
+
+    .hero-content {
+        padding: 25px 20px;
+    }
+
+    .brand {
+        margin-bottom: 30px;
+    }
+
+    .brand-mark {
+        width: 55px;
+        font-size: 42px;
+    }
+
+    .brand-name {
+        font-size: 31px;
+        letter-spacing: 3px;
+    }
+
+    .brand-subtitle {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .hero-copy h1 {
+        font-size: 42px;
+        letter-spacing: -1px;
+    }
+
+    .hero-stats {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .stat-divider {
+        display: none;
+    }
+
+    .circle-icon {
+        width: 62px;
+        height: 62px;
+        font-size: 30px;
+    }
+
+    .hero-visual {
+        min-height: 330px;
+    }
+
+    .quote-badge {
+        width: 190px;
+        height: 190px;
+        left: 18px;
+        top: 18px;
+        font-size: 13px;
+        padding: 25px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .feature {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.45);
+        min-height: 150px;
+    }
+
+    .contact-card {
+        padding: 17px;
+    }
+
+    .footer-title {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .footer-script {
+        font-size: 20px;
+    }
+
+
+    /* Modal на телефоне */
+
+    .contact-modal {
+        padding: 28px 20px 22px;
+    }
+
+    .contact-modal h2 {
+        font-size: 29px;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .modal-actions button {
+        width: 100%;
+    }
+}
