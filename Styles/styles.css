@@ -1,21 +1,38 @@
 /* =========================================================
-   Trauma-Informed Massage Therapy — landing page
-   No JavaScript. Buttons are intentionally non-functional.
+   GARTMAN MASSAGE EDUCATION
+   Main stylesheet
+   ========================================================= */
+
+
+/* =========================================================
+   1. DESIGN TOKENS
    ========================================================= */
 
 :root {
     --cream: #f5f1e8;
-    --cream-light: #fff;
+    --cream-light: #fffdf8;
+
     --green: #28462d;
     --green-dark: #1d3522;
     --green-soft: #53684e;
+
     --brown: #895333;
     --gold: #a36a43;
+
     --text: #17231b;
     --muted: #596057;
     --border: #d5cec0;
     --white: #ffffff;
+
+    --shadow: 0 18px 50px rgba(29, 53, 34, 0.10);
+
+    --container-width: 1180px;
 }
+
+
+/* =========================================================
+   2. RESET & GLOBAL STYLES
+   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -23,430 +40,1125 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 84px;
 }
 
 body {
     margin: 0;
-    background: #fff;
+    background: var(--cream-light);
     color: var(--text);
+
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
-.page {
-    width: min(1400px, 100%);
-    margin: 0 auto;
-    background: var(--cream);
+body.modal-open {
     overflow: hidden;
 }
 
-/* ---------- HERO ---------- */
-
-.hero {
-    min-height: 545px;
-    display: grid;
-    grid-template-columns: 54% 46%;
-    background:
-        radial-gradient(circle at 18% 80%, rgba(139, 107, 71, .06), transparent 30%),
-        var(--cream-light);
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.hero-content {
-    padding: 34px 35px 28px 54px;
-    position: relative;
-    z-index: 2;
+button,
+input,
+textarea {
+    font: inherit;
 }
 
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 40px;
+
+/* =========================================================
+   3. REUSABLE LAYOUT
+   ========================================================= */
+
+.container {
+    width: min(
+        var(--container-width),
+        calc(100% - 64px)
+    );
+
+    margin: 0 auto;
 }
 
-.brand-mark {
-    width: 90px;
-    height: 62px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--green);
-    font-size: 54px;
-    transform: rotate(-15deg);
+.section-shell {
+    padding: 92px 0;
+    border-bottom: 1px solid var(--border);
 }
 
-.brand-name {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(34px, 3.2vw, 52px);
-    letter-spacing: 5px;
-    line-height: 1;
-    font-weight: 600;
-}
 
-.brand-subtitle {
-    margin-top: 10px;
-    color: var(--brown);
-    letter-spacing: 4px;
-    font-size: 18px;
-}
+/* =========================================================
+   4. TYPOGRAPHY
+   ========================================================= */
 
-.hero-copy h1 {
+.hero h1,
+.section-heading h2 {
     margin: 0;
+
+    color: var(--green-dark);
+
     font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(50px, 5.2vw, 77px);
-    line-height: .99;
-    font-weight: 700;
+    font-weight: 500;
+}
+
+.hero h1 {
+    font-size: clamp(46px, 5vw, 72px);
+    line-height: 0.98;
     letter-spacing: -2px;
 }
 
-.gold-line {
-    width: 255px;
-    height: 2px;
-    background: var(--gold);
-    margin: 27px 0 17px;
+.section-heading h2 {
+    font-size: clamp(34px, 4vw, 49px);
+    line-height: 1.08;
 }
 
-.lead {
-    max-width: 650px;
-    margin: 0;
-    font-size: 23px;
-    line-height: 1.35;
+.eyebrow,
+.section-kicker {
+    margin: 0 0 13px;
+
+    color: var(--green-soft);
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
 }
+
+.heading-ornament {
+    display: block;
+
+    margin-top: 12px;
+
+    color: var(--gold);
+
+    font-size: 13px;
+    letter-spacing: 4px;
+}
+
+.section-heading.centered {
+    text-align: center;
+}
+
+.section-heading > p:not(.section-kicker) {
+    max-width: 650px;
+    margin-top: 20px;
+
+    color: var(--muted);
+}
+
+.section-heading.centered > p:not(.section-kicker) {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+/* =========================================================
+   5. BUTTONS
+   ========================================================= */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 45px;
+    padding: 10px 25px;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    border: 1px solid var(--green);
+    background: var(--green);
+    color: var(--white);
+}
+
+.button-primary:hover {
+    background: var(--green-dark);
+}
+
+.button-outline {
+    border: 1px solid var(--green-soft);
+    background: transparent;
+    color: var(--green-dark);
+}
+
+
+/* =========================================================
+   6. HEADER & NAVIGATION
+   ========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+
+    background: rgba(255, 253, 248, 0.96);
+
+    border-bottom: 1px solid rgba(213, 206, 192, 0.8);
+
+    backdrop-filter: blur(12px);
+}
+
+.nav-wrap {
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* ---------- Brand ---------- */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+.brand > span:last-child {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1;
+}
+
+.brand b {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    letter-spacing: 2px;
+}
+
+.brand small {
+    margin-top: 5px;
+
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.brand-mark {
+    position: relative;
+
+    width: 28px;
+    height: 36px;
+}
+
+.brand-mark i {
+    position: absolute;
+
+    width: 10px;
+    height: 20px;
+
+    border: 2px solid currentColor;
+    border-radius: 100% 0 100% 0;
+}
+
+.brand-mark i:nth-child(1) {
+    top: 3px;
+    left: 2px;
+
+    transform: rotate(-35deg);
+}
+
+.brand-mark i:nth-child(2) {
+    top: 0;
+    left: 13px;
+
+    transform: rotate(28deg);
+}
+
+.brand-mark i:nth-child(3) {
+    top: 16px;
+    left: 8px;
+
+    transform: rotate(-20deg);
+}
+
+
+/* ---------- Main navigation ---------- */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+
+    font-size: 13px;
+}
+
+.main-nav > a {
+    position: relative;
+
+    padding: 27px 0 24px;
+}
+
+.main-nav > a::after {
+    content: "";
+
+    position: absolute;
+    right: 0;
+    bottom: 16px;
+    left: 0;
+
+    height: 2px;
+
+    background: var(--gold);
+
+    transform: scaleX(0);
+
+    transition: transform 0.25s ease;
+}
+
+.main-nav > a:hover::after,
+.main-nav > a.active::after {
+    transform: scaleX(1);
+}
+
+.nav-contact {
+    padding: 11px 22px;
+
+    border: 0;
+    border-radius: 4px;
+
+    background: var(--brown);
+    color: var(--white);
+
+    cursor: pointer;
+}
+
+.nav-contact:hover {
+    background: #754529;
+}
+
+
+/* ---------- Mobile menu button ---------- */
+
+.mobile-nav-toggle {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.mobile-nav-toggle span {
+    display: block;
+
+    width: 20px;
+    height: 2px;
+
+    margin: 4px auto;
+
+    background: var(--green);
+}
+
+
+/* =========================================================
+   7. HERO SECTION
+   ========================================================= */
+
+.hero {
+    padding-top: 70px;
+
+    background:
+        radial-gradient(
+            circle at 8% 20%,
+            rgba(163, 106, 67, 0.07),
+            transparent 24%
+        ),
+        var(--cream-light);
+}
+
+.hero-grid {
+    min-height: 590px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    gap: 70px;
+}
+
+.hero-lead {
+    max-width: 540px;
+
+    margin: 25px 0 31px;
+
+    color: var(--muted);
+
+    font-size: 18px;
+}
+
+
+/* ---------- Hero statistics ---------- */
 
 .hero-stats {
     display: flex;
     align-items: center;
-    gap: 25px;
-    margin-top: 25px;
+
+    gap: 22px;
 }
 
 .stat {
     display: flex;
     align-items: center;
-    gap: 13px;
+
+    gap: 10px;
 }
 
-.circle-icon {
-    width: 78px;
-    height: 78px;
+.stat-icon {
+    width: 37px;
+    height: 37px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--gold);
     border-radius: 50%;
-    background: var(--green);
-    color: white;
-    border: 4px solid #ecede7;
-    outline: 1px solid var(--green);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 38px;
-    flex: 0 0 auto;
+
+    color: var(--green);
+
+    font-size: 19px;
 }
 
-.stat strong,
-.stat span {
+.stat b,
+.stat small {
     display: block;
 }
 
-.stat strong {
-    font-size: 17px;
-    margin-bottom: 6px;
+.stat b {
+    font-size: 10px;
+    letter-spacing: 0.7px;
 }
 
-.stat span {
-    font-size: 17px;
+.stat small {
+    color: var(--muted);
+    font-size: 11px;
 }
 
 .stat-divider {
     width: 1px;
-    height: 70px;
-    background: #a49d90;
+    height: 42px;
+
+    background: var(--border);
 }
+
+
+/* ---------- Hero buttons ---------- */
+
+.hero-actions {
+    display: flex;
+
+    gap: 13px;
+
+    margin-top: 35px;
+}
+
+
+/* ---------- Hero image ---------- */
 
 .hero-visual {
     position: relative;
-    min-height: 545px;
+
+    min-height: 520px;
 }
 
-.large-photo {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background:
-        linear-gradient(145deg, #c7bca7, #b0a58f 48%, #9b907b);
-    color: white;
-    font-size: 28px;
-    letter-spacing: 1px;
+.photo-placeholder {
+    display: grid;
+    place-items: center;
+
+    color: #77746d;
+
+    background: linear-gradient(
+        145deg,
+        #ebe7df,
+        #ded9d0
+    );
+
+    border: 1px solid #d7d1c7;
+
     text-align: center;
 }
+
+.photo-placeholder.large {
+    position: absolute;
+    inset: 0 0 0 8%;
+
+    min-height: 520px;
+}
+
+
+/* ---------- Quote badge ---------- */
 
 .quote-badge {
     position: absolute;
-    left: -75px;
-    top: 55px;
-    width: 255px;
-    height: 255px;
-    border-radius: 50%;
-    background: rgba(249, 247, 239, .94);
-    border: 3px double var(--green-soft);
-    outline: 1px solid rgba(83, 104, 78, .35);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 35px;
-    line-height: 1.55;
-    font-size: 17px;
-    z-index: 3;
-}
+    top: 40%;
+    left: -18px;
 
-/* ---------- FEATURE STRIP ---------- */
+    width: 172px;
+    height: 172px;
 
-.features {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    background: var(--green);
-    color: white;
-    padding: 16px 10px;
-}
+    place-items: center;
 
-.feature {
-    min-height: 180px;
-    padding: 10px 20px 15px;
-    text-align: center;
-    border-right: 1px solid rgba(255,255,255,.65);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    padding: 25px;
 
-.feature:last-child {
-    border-right: 0;
-}
-
-.feature-icon {
-    font-size: 51px;
-    line-height: 1;
-    margin-bottom: 8px;
-}
-
-.feature h3 {
-    margin: 0;
-    font-size: 17px;
-    line-height: 1.2;
-}
-
-.feature p {
-    margin: 12px 0 0;
-    max-width: 220px;
-    font-size: 15px;
-    line-height: 1.4;
-}
-
-/* ---------- INFORMATION ---------- */
-
-.information {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr .95fr;
-    gap: 0;
-    padding: 18px 48px 20px;
-    background: var(--cream-light);
-}
-
-.info-column {
-    padding: 5px 35px 10px 0;
-}
-
-.learning {
-    border-right: 1px solid #cfc8ba;
-    padding-right: 38px;
-}
-
-.details {
-    padding-left: 35px;
-    border-right: 0;
-}
-
-.section-heading {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 11px;
-}
-
-.section-heading h2 {
-    margin: 0;
-    font-size: 19px;
-    letter-spacing: .3px;
-}
-
-.leaf {
-    color: var(--green);
-    font-size: 27px;
-}
-
-.learning ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.learning li {
-    position: relative;
-    padding-left: 22px;
-    margin: 8px 0;
-    font-size: 15px;
-    line-height: 1.35;
-}
-
-.learning li::before {
-    content: "◆";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--green-soft);
-    font-size: 9px;
-}
-
-.detail-item {
-    display: flex;
-    gap: 13px;
-    margin: 10px 0;
-}
-
-.detail-icon {
-    width: 43px;
-    height: 43px;
+    border: 1px solid var(--gold);
     border-radius: 50%;
-    flex: 0 0 43px;
-    background: var(--green);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 21px;
-}
 
-.detail-item strong {
-    font-size: 15px;
-    display: block;
-    margin-top: 3px;
-}
+    background: rgba(255, 253, 248, 0.91);
 
-.detail-item p {
-    margin: 3px 0 0;
-    font-size: 14px;
-    line-height: 1.35;
-}
+    box-shadow: 0 8px 25px rgba(29, 53, 34, 0.08);
 
-/* ---------- CONTACT CARD ---------- */
-
-.contact-card {
-    border: 1px solid #aaa18f;
-    border-radius: 14px;
-    margin: 0 0 0 25px;
-    padding: 19px 25px 20px;
-    min-height: 275px;
-    background:
-        radial-gradient(circle at 95% 100%, rgba(75, 96, 70, .12), transparent 35%),
-        #f7f4eb;
-}
-
-.contact-card h2 {
     text-align: center;
-    font-size: 18px;
-    margin: 0;
-}
 
-.small-line {
-    width: 75%;
-    height: 1px;
-    background: #aaa18f;
-    margin: 11px auto 14px;
-}
-
-.contact-row {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
-.contact-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: var(--green);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 37px;
-    flex: 0 0 auto;
-}
-
-.contact-row p {
-    margin: 0;
-    font-size: 16px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
     line-height: 1.45;
 }
 
-.contact-button {
-    display: block;
-    margin: 17px auto 13px;
-    border: 0;
-    background: var(--brown);
-    color: white;
-    padding: 11px 28px;
+.leaf-decoration {
+    position: absolute;
+
+    color: var(--green-soft);
+
+    font-size: 70px;
+
+    transform: rotate(-20deg);
+}
+
+.leaf-one {
+    right: 10px;
+    bottom: -26px;
+}
+
+.leaf-two {
+    top: 16px;
+    left: 15px;
+
+    font-size: 45px;
+}
+
+
+/* =========================================================
+   8. ABOUT SECTION
+   ========================================================= */
+
+.about {
+    background: var(--cream);
+}
+
+.split-section {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+
+    gap: 80px;
+}
+
+.photo-placeholder.medium {
+    min-height: 310px;
+
     border-radius: 4px;
-    font-size: 15px;
-    cursor: default;
 }
 
-.script-text {
-    font-family: "Brush Script MT", "Segoe Script", cursive;
-    color: #394938;
-    font-size: 28px;
-    line-height: .95;
-    text-align: right;
-    padding-right: 12px;
+
+/* =========================================================
+   9. BENEFITS SECTION
+   ========================================================= */
+
+.benefits {
+    padding: 80px 0;
+
+    background: var(--green);
+
+    color: var(--white);
 }
 
-/* ---------- FOOTER ---------- */
+.light h2,
+.light .section-kicker,
+.benefits .heading-ornament {
+    color: var(--white);
+}
 
-footer {
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    margin-top: 50px;
+}
+
+.benefit-grid article {
+    min-height: 205px;
+
+    padding: 0 27px;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.35);
+
     text-align: center;
-    padding: 5px 25px 12px;
+}
+
+.benefit-grid article:last-child {
+    border-right: 0;
+}
+
+.line-icon {
+    height: 55px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px;
+    line-height: 1;
+}
+
+.benefit-grid h3 {
+    margin: 12px 0 8px;
+
+    font-size: 13px;
+    line-height: 1.35;
+    text-transform: uppercase;
+}
+
+.benefit-grid p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   10. COURSE SECTION
+   ========================================================= */
+
+.course {
     background: var(--cream-light);
 }
 
-.footer-title {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 16px;
-    letter-spacing: 5px;
-    font-weight: 600;
+.course-grid {
+    display: flex;
+    grid-template-columns: 0.72fr 1.3fr 0.72fr;
+    align-items: start;
+
+    gap: 34px;
+
+    margin-top: 52px;
 }
 
-.footer-line {
-    width: 600px;
-    max-width: 80%;
-    height: 1px;
-    background: var(--gold);
-    margin: 7px auto 2px;
+.photo-placeholder.tall {
+    min-height: 390px;
+
+    border-radius: 4px;
 }
 
-.footer-script {
-    font-family: "Brush Script MT", "Segoe Script", cursive;
-    color: var(--brown);
-    font-size: 24px;
+
+/* ---------- Learning list ---------- */
+
+.learning-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
 }
+
+.learning-list ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.learning-list li {
+    position: relative;
+
+    padding-left: 23px;
+
+    margin-bottom: 18px;
+
+    font-size: 18px;
+}
+
+.learning-list li::before {
+    content: "◆";
+
+    position: absolute;
+    top: 2px;
+    left: 0;
+
+    color: var(--green-soft);
+
+    font-size: 8px;
+}
+
+
+/* ---------- Course details card ---------- */
+
+.course-card {
+    padding: 25px 22px;
+
+    border-radius: 7px;
+
+    background: #efebe2;
+}
+
+.card-label {
+    margin: 0 0 18px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.detail-row {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.detail-row > span {
+    color: var(--gold);
+
+    font-size: 20px;
+}
+
+.detail-row p {
+    margin: 0;
+}
+
+.detail-row b,
+.detail-row small {
+    display: block;
+}
+
+.detail-row b {
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.detail-row small {
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+
 /* =========================================================
-   CONTACT MODAL
+   11. AUDIENCE SECTION
+   ========================================================= */
+
+.audience {
+    background: var(--cream);
+}
+
+.audience-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    margin-top: 48px;
+}
+
+.audience-grid article {
+    padding: 10px 35px;
+
+    border-right: 1px solid var(--border);
+
+    text-align: center;
+}
+
+.audience-grid article:last-child {
+    border-right: 0;
+}
+
+.round-icon {
+    width: 55px;
+    height: 55px;
+
+    display: grid;
+    place-items: center;
+
+    margin: 0 auto 15px;
+
+    border: 1px solid var(--green-soft);
+    border-radius: 50%;
+
+    color: var(--green);
+
+    font-size: 26px;
+}
+
+.audience-grid p {
+    margin: 0;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   12. INSTRUCTOR SECTION
+   ========================================================= */
+
+.instructor {
+    background: var(--cream-light);
+}
+
+.instructor-grid {
+    grid-template-columns: 0.9fr 1.1fr;
+}
+
+.instructor-photo {
+    min-height: 360px;
+
+    border-radius: 5px;
+}
+
+.instructor-facts {
+    display: flex;
+
+    gap: 25px;
+
+    margin-top: 30px;
+}
+
+.instructor-facts div {
+    display: flex;
+    align-items: center;
+
+    max-width: 180px;
+
+    gap: 9px;
+}
+
+.instructor-facts span {
+    color: var(--gold);
+
+    font-size: 21px;
+}
+
+.instructor-facts b {
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   13. TESTIMONIALS SECTION
+   ========================================================= */
+
+.testimonials {
+    background: var(--cream);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    align-items: center;
+
+    gap: 55px;
+}
+
+.testimonial-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 13px;
+
+    margin-top: 35px;
+}
+
+.testimonial-cards article {
+    padding: 24px 20px 21px;
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+}
+
+.quote-mark {
+    color: var(--gold);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+}
+
+.testimonial-cards p {
+    margin: 2px 0 15px;
+
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.testimonial-cards b {
+    font-size: 10px;
+}
+
+.testimonial-dots {
+    margin-top: 15px;
+
+    color: var(--green-soft);
+
+    font-size: 9px;
+    letter-spacing: 5px;
+
+    text-align: center;
+}
+
+.testimonial-photo {
+    min-height: 370px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   14. CONTACT SECTION
+   ========================================================= */
+
+.contact-section {
+    padding: 75px 0;
+
+    background:
+        linear-gradient(
+            rgba(40, 70, 45, 0.82),
+            rgba(40, 70, 45, 0.82)
+        ),
+        radial-gradient(
+            circle at 30% 30%,
+            #b9c2ad,
+            #68755f
+        );
+
+    color: var(--white);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr 0.48fr;
+    align-items: center;
+
+    gap: 40px;
+}
+
+.contact-intro .section-kicker {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.contact-intro h2 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 40px;
+    line-height: 1.1;
+}
+
+.contact-intro > p:last-child {
+    max-width: 310px;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    font-size: 13px;
+}
+
+
+/* ---------- Inline contact form ---------- */
+
+.inline-contact-form {
+    display: grid;
+
+    gap: 11px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 11px;
+}
+
+.inline-contact-form label span {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    overflow: hidden;
+
+    clip: rect(0 0 0 0);
+}
+
+.inline-contact-form input,
+.inline-contact-form textarea {
+    width: 100%;
+
+    padding: 10px 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 5px;
+
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--text);
+
+    outline: 0;
+}
+
+.inline-contact-form textarea {
+    resize: vertical;
+}
+
+.button-light {
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    background: var(--green-dark);
+    color: var(--white);
+}
+
+.form-note {
+    min-height: 18px;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    font-size: 11px;
+}
+
+
+/* ---------- Contact image ---------- */
+
+.contact-photo {
+    min-height: 235px;
+
+    border-color: rgba(255, 255, 255, 0.25);
+
+    background: rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================================================
+   15. FOOTER
+   ========================================================= */
+
+.site-footer {
+    background: var(--green-dark);
+    color: var(--white);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1.35fr 0.7fr 0.8fr 1fr;
+
+    gap: 60px;
+
+    padding: 52px 0 45px;
+}
+
+.brand-light {
+    color: var(--white);
+}
+
+.footer-brand > p {
+    margin: 19px 0;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 12px;
+}
+
+.socials {
+    display: flex;
+
+    gap: 8px;
+}
+
+.socials a {
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50%;
+
+    font-size: 12px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.footer-column h3 {
+    margin: 0 0 9px;
+
+    font-size: 10px;
+    letter-spacing: 1.4px;
+}
+
+.footer-column a,
+.footer-column span {
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 11px;
+}
+
+.footer-column a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 17px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   16. CONTACT MODAL
    ========================================================= */
 
 .modal-overlay {
     position: fixed;
     inset: 0;
-
     z-index: 1000;
 
     display: flex;
@@ -466,9 +1178,6 @@ footer {
         visibility 0s linear 0.25s;
 }
 
-
-/* Когда окно открыто */
-
 .modal-overlay.is-open {
     opacity: 1;
     visibility: visible;
@@ -478,9 +1187,6 @@ footer {
         opacity 0.25s ease,
         visibility 0s linear 0s;
 }
-
-
-/* Само модальное окно */
 
 .contact-modal {
     position: relative;
@@ -492,65 +1198,33 @@ footer {
 
     padding: 34px 36px 30px;
 
-    background: var(--cream-light);
-
     border: 1px solid #c5bcaa;
     border-radius: 16px;
 
-    box-shadow:
-        0 24px 70px rgba(0, 0, 0, 0.25);
+    background: var(--cream-light);
 
-    /* Начальное положение для анимации */
-    transform: translateY(35px) scale(0.94);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+
     opacity: 0;
 
+    transform: translateY(35px) scale(0.94);
+
     transition:
-        transform 0.35s cubic-bezier(.2, .8, .2, 1),
+        transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
         opacity 0.25s ease;
 }
 
-
-/* Анимация появления */
-
 .modal-overlay.is-open .contact-modal {
-    transform: translateY(0) scale(1);
     opacity: 1;
+
+    transform: translateY(0) scale(1);
 }
 
 
-/* Заголовок */
-
-.contact-modal h2 {
-    margin: 0;
-
-    color: var(--green-dark);
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 34px;
-}
-
-
-/* Описание */
-
-.modal-description {
-    margin: 7px 0 24px;
-
-    color: var(--muted);
-
-    font-size: 15px;
-    line-height: 1.45;
-}
-
-
-/* Кнопка X */
+/* ---------- Modal close button ---------- */
 
 .modal-close {
     position: absolute;
-
     top: 12px;
     right: 16px;
 
@@ -565,14 +1239,7 @@ footer {
     background: transparent;
 
     cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
-
-
-/* Две линии крестика */
 
 .modal-close::before,
 .modal-close::after {
@@ -583,57 +1250,70 @@ footer {
     width: 22px;
     height: 2px;
 
-    background: var(--green);
-
-    left: 50%;
     top: 50%;
+    left: 50%;
+
+    background: var(--green);
 
     transform-origin: center;
 
     transition: transform 0.3s ease;
 }
 
-
-/* Первая линия */
-
 .modal-close::before {
-    transform: translate(-50%, -50%) rotate(45deg);
+    transform:
+        translate(-50%, -50%)
+        rotate(45deg);
 }
-
-
-/* Вторая линия */
 
 .modal-close::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
+    transform:
+        translate(-50%, -50%)
+        rotate(-45deg);
 }
-
-
-/* Фон кнопки */
 
 .modal-close:hover {
     background: rgba(40, 70, 45, 0.09);
 }
 
-
-/* Анимация */
-
 .modal-close:hover::before {
-    transform: translate(-50%, -50%) rotate(135deg);
+    transform:
+        translate(-50%, -50%)
+        rotate(135deg);
 }
 
 .modal-close:hover::after {
-    transform: translate(-50%, -50%) rotate(45deg);
+    transform:
+        translate(-50%, -50%)
+        rotate(45deg);
 }
 
 
-/* Группа поля */
+/* ---------- Modal typography ---------- */
+
+.contact-modal h2 {
+    margin: 0;
+
+    color: var(--green-dark);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+}
+
+.modal-description {
+    margin: 7px 0 24px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+}
+
+
+/* ---------- Modal form ---------- */
 
 .form-group {
     margin-bottom: 17px;
 }
-
-
-/* Название поля */
 
 .form-group label {
     display: block;
@@ -646,9 +1326,6 @@ footer {
     font-weight: 700;
 }
 
-
-/* Input и textarea */
-
 .form-group input,
 .form-group textarea {
     width: 100%;
@@ -659,21 +1336,14 @@ footer {
     border-radius: 7px;
 
     background: #fffdf8;
-
     color: var(--text);
 
-    font-family: inherit;
-    font-size: 15px;
-
-    outline: none;
+    outline: 0;
 
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease;
 }
-
-
-/* Поле активно */
 
 .form-group input:focus,
 .form-group textarea:focus {
@@ -683,270 +1353,355 @@ footer {
         0 0 0 3px rgba(83, 104, 78, 0.13);
 }
 
-
-/* Textarea */
-
 .form-group textarea {
     min-height: 110px;
 
     resize: vertical;
 }
 
+.send-button {
+    width: 100%;
 
-/* Placeholder */
+    padding: 12px 22px;
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #9b978d;
-}
-
-
-/* Контейнер кнопок */
-
-.modal-actions {
-    display: flex;
-
-    justify-content: flex-end;
-
-    gap: 11px;
-
-    margin-top: 23px;
-}
-
-
-/* Общие стили кнопок */
-
-.modal-actions button {
-    min-width: 105px;
-
-    padding: 11px 22px;
-
+    border: 1px solid var(--green);
     border-radius: 6px;
 
-    font-family: inherit;
-    font-size: 15px;
+    background: var(--green);
+    color: var(--white);
+
     font-weight: 700;
 
     cursor: pointer;
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
 }
-
-
-.modal-actions button:hover {
-    transform: translateY(-1px);
-}
-
-
-/* Send */
-
-.send-button {
-    border: 1px solid var(--green);
-
-    background: var(--green);
-
-    color: white;
-}
-
 
 .send-button:hover {
     background: var(--green-dark);
-
-    box-shadow:
-        0 5px 15px rgba(29, 53, 34, 0.18);
-}
-
-
-/* Пока окно открыто — страницу нельзя прокручивать */
-
-body.modal-open {
-    overflow: hidden;
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   17. RESPONSIVE — TABLET
    ========================================================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 1000px) {
 
-    .hero {
-        grid-template-columns: 1fr;
+    .main-nav {
+        gap: 16px;
     }
 
-    .hero-content {
-        padding-right: 40px;
+    .benefit-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .benefit-grid article:nth-child(3) {
+        border-right: 0;
+    }
+
+    .benefit-grid article:nth-child(n + 4) {
+        margin-top: 35px;
+    }
+
+    .course-grid {
+        grid-template-columns: 0.7fr 1.3fr;
+    }
+
+    .course-card {
+        grid-column: 2;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr 1.3fr;
+    }
+
+    .contact-photo {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   18. RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .container {
+        width: min(
+            var(--container-width),
+            calc(100% - 38px)
+        );
+    }
+
+    /* ---------- Mobile navigation ---------- */
+
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: calc(100% + 1px);
+        right: 19px;
+        left: 19px;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 12px;
+
+        border: 1px solid var(--border);
+
+        background: var(--cream-light);
+
+        box-shadow: var(--shadow);
+    }
+
+    .main-nav.is-open {
+        display: flex;
+    }
+
+    .main-nav > a {
+        padding: 12px;
+    }
+
+    .main-nav > a::after {
+        display: none;
+    }
+
+    .nav-contact {
+        margin-top: 7px;
+    }
+
+
+    /* ---------- General sections ---------- */
+
+    .hero-grid,
+    .split-section,
+    .instructor-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .hero {
+        padding-top: 55px;
+    }
+
+    .hero-grid {
+        min-height: auto;
     }
 
     .hero-visual {
         min-height: 420px;
     }
 
+    .photo-placeholder.large {
+        min-height: 420px;
+    }
+
     .quote-badge {
-        left: 35px;
-        top: 30px;
+        left: -5px;
     }
 
-    .information {
-        grid-template-columns: 1fr 1fr;
+
+    /* ---------- Benefits ---------- */
+
+    .benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .contact-card {
-        grid-column: 1 / -1;
-        margin: 25px 0 0;
-    }
-}
-
-
-@media (max-width: 800px) {
-
-    .hero-copy h1 {
-        font-size: 52px;
-    }
-
-    .lead {
-        font-size: 19px;
-    }
-
-    .features {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .feature {
-        border-bottom: 1px solid rgba(255,255,255,.5);
-    }
-
-    .feature:nth-child(2n) {
+    .benefit-grid article:nth-child(2) {
         border-right: 0;
     }
 
-    .information {
+    .benefit-grid article:nth-child(3) {
+        border-right: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+
+    /* ---------- Course ---------- */
+
+    .course-grid {
         grid-template-columns: 1fr;
-        padding: 25px;
     }
 
-    .learning {
-        border-right: 0;
-        border-bottom: 1px solid #cfc8ba;
-        padding: 0 0 22px;
-    }
-
-    .details {
-        padding: 22px 0 0;
-    }
-
-    .contact-card {
+    .course-card {
         grid-column: auto;
     }
 
-    .footer-title {
-        font-size: 12px;
-        letter-spacing: 3px;
+    .learning-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ---------- Audience ---------- */
+
+    .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .audience-grid article:nth-child(2) {
+        border-right: 0;
+    }
+
+    .audience-grid article:nth-child(n + 3) {
+        margin-top: 30px;
+    }
+
+
+    /* ---------- Contact ---------- */
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-photo {
+        display: grid;
+    }
+
+
+    /* ---------- Footer ---------- */
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 35px;
     }
 }
 
 
+/* =========================================================
+   19. RESPONSIVE — SMALL PHONES
+   ========================================================= */
+
 @media (max-width: 560px) {
 
-    .hero-content {
-        padding: 25px 20px;
+    .section-shell {
+        padding: 65px 0;
     }
 
-    .brand {
-        margin-bottom: 30px;
-    }
-
-    .brand-mark {
-        width: 55px;
+    .hero h1 {
         font-size: 42px;
     }
 
-    .brand-name {
-        font-size: 31px;
-        letter-spacing: 3px;
+    .hero-lead {
+        font-size: 16px;
     }
 
-    .brand-subtitle {
-        font-size: 12px;
-        letter-spacing: 2px;
-    }
 
-    .hero-copy h1 {
-        font-size: 42px;
-        letter-spacing: -1px;
-    }
+    /* ---------- Hero ---------- */
 
     .hero-stats {
         align-items: flex-start;
-        flex-direction: column;
-        gap: 15px;
+
+        gap: 13px;
     }
 
     .stat-divider {
-        display: none;
+        height: 35px;
     }
 
-    .circle-icon {
-        width: 62px;
-        height: 62px;
-        font-size: 30px;
+    .stat small {
+        font-size: 10px;
     }
 
-    .hero-visual {
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-visual,
+    .photo-placeholder.large {
         min-height: 330px;
     }
 
     .quote-badge {
-        width: 190px;
-        height: 190px;
-        left: 18px;
-        top: 18px;
-        font-size: 13px;
-        padding: 25px;
+        width: 145px;
+        height: 145px;
+
+        padding: 18px;
+
+        font-size: 10px;
     }
 
-    .features {
+
+    /* ---------- Benefits ---------- */
+
+    .benefit-grid {
         grid-template-columns: 1fr;
     }
 
-    .feature {
+    .benefit-grid article,
+    .benefit-grid article:nth-child(3) {
+        padding-bottom: 30px;
+
         border-right: 0;
-        border-bottom: 1px solid rgba(255,255,255,.45);
-        min-height: 150px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     }
 
-    .contact-card {
-        padding: 17px;
+    .benefit-grid article:last-child {
+        border-bottom: 0;
     }
 
-    .footer-title {
-        font-size: 10px;
-        letter-spacing: 2px;
-    }
-
-    .footer-script {
-        font-size: 20px;
+    .benefit-grid article + article {
+        padding-top: 30px;
     }
 
 
-    /* Modal на телефоне */
+    /* ---------- Audience ---------- */
+
+    .audience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .audience-grid article {
+        padding: 20px 15px;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .audience-grid article:last-child {
+        border-bottom: 0;
+    }
+
+    .audience-grid article:nth-child(n + 3) {
+        margin-top: 0;
+    }
+
+
+    /* ---------- Instructor ---------- */
+
+    .instructor-facts {
+        flex-direction: column;
+
+        gap: 14px;
+    }
+
+
+    /* ---------- Footer ---------- */
+
+    .footer-main {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+
+    /* ---------- Contact modal ---------- */
 
     .contact-modal {
-        padding: 28px 20px 22px;
+        padding: 30px 21px 24px;
     }
 
-    .contact-modal h2 {
-        font-size: 29px;
-    }
-
-    .modal-actions {
-        flex-direction: column-reverse;
-    }
-
-    .modal-actions button {
-        width: 100%;
+    .form-row {
+        grid-template-columns: 1fr;
     }
 }
