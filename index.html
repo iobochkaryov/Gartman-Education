@@ -8,36 +8,53 @@
 <link rel="stylesheet" href="Styles/styles.css">
 </head>
 <body>
-<header class="site-header" id="home">
+<svg class="icon-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="icon-shield-check" viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="icon-brain" viewBox="0 0 24 24"><path d="M12 4a3 3 0 0 0-5.6-1.5A3.5 3.5 0 0 0 4 8.3a3.5 3.5 0 0 0 0 6.4 3.5 3.5 0 0 0 4.2 5.2A3 3 0 0 0 12 18Z"/><path d="M12 4a3 3 0 0 1 5.6-1.5A3.5 3.5 0 0 1 20 8.3a3.5 3.5 0 0 1 0 6.4 3.5 3.5 0 0 1-4.2 5.2A3 3 0 0 1 12 18Z"/><path d="M12 4v16M8 8h2m4 4h2m-8 3h2"/></symbol>
+  <symbol id="icon-hand-heart" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-9a4.5 4.5 0 0 1 7-3.7 4.5 4.5 0 0 1 7 3.7c0 4.6-7 9-7 9Z"/><path d="M2 15h3l2-2h3l2 2h3l2-2h3l2 2-6 5-6-2-3-2H2Z"/></symbol>
+  <symbol id="icon-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+  <symbol id="icon-book-open" viewBox="0 0 24 24"><path d="M12 7v14m0-14C9.5 5 6 4 2 5v14c4-1 7.5 0 10 2m0-14c2.5-2 6-3 10-2v14c-4-1-7.5 0-10 2"/></symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol>
+  <symbol id="icon-badge-check" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="m8.2 13.2-1.3 8 5.1-2.5 5.1 2.5-1.3-8M9.5 8l1.7 1.7L14.5 6.5"/></symbol>
+  <symbol id="icon-book-check" viewBox="0 0 24 24"><path d="M12 7v14m0-14C9.5 5 6 4 2 5v14c4-1 7.5 0 10 2m0-14c2.5-2 6-3 10-2v8"/><path d="m16 17 2 2 4-4"/></symbol>
+  <symbol id="icon-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="m8.2 13.2-1.3 8 5.1-2.5 5.1 2.5-1.3-8"/></symbol>
+  <symbol id="icon-graduation" viewBox="0 0 24 24"><path d="m2 10 10-5 10 5-10 5-10-5Z"/><path d="M6 12v5c3.5 3 8.5 3 12 0v-5m4-2v6"/></symbol>
+  <symbol id="icon-presentation" viewBox="0 0 24 24"><path d="M3 4h18v12H3zM12 16v5m-4 0h8M7 12l3-3 2 2 4-4"/><path d="m13 7 3 0 0 3"/></symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="icon-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+</svg>
+<header class="site-header">
   <div class="container nav-wrap">
     <a class="brand" href="#home"><span class="brand-mark"><i></i><i></i><i></i></span><span><b>GARTMAN</b><small>MASSAGE EDUCATION</small></span></a>
     <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="main-nav" id="mainNav">
-      <a class="active" href="#home">Home</a><a href="#about">About</a><a href="#course">Course</a><a href="#benefits">Benefits</a><a href="#testimonials">Feedbacks</a>
+      <a href="#home">Home</a><a href="#about">About</a><a href="#benefits">Benefits</a><a href="#course">Course</a><a href="#testimonials">Feedbacks</a>
       <button class="nav-contact contact-trigger" type="button">Contact Us</button>
     </nav>
   </div>
 </header>
 
 <main>
-<section class="hero section-shell">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow">EVIDENCE-INFORMED &nbsp;•&nbsp; PRACTICAL &nbsp;•&nbsp; CLIENT-CENTERED</p>
-      <h1>Trauma-Informed<br>Massage Therapy</h1>
-      <p class="hero-lead">Creating safety, trust and nervous system awareness in massage therapy practice.</p>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-icon">◷</span><span><b>10 CE HOURS</b><small>Two-Day Course</small></span></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-icon">◎</span><span><b>EVIDENCE-INFORMED</b><small>Practical &amp; Applicable</small></span></div>
+<section class="hero section-shell" id="home">
+  <div class="hero-main">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">EVIDENCE-INFORMED &nbsp;•&nbsp; PRACTICAL &nbsp;•&nbsp; CLIENT-CENTERED</p>
+        <h1>Trauma-Informed<br>Massage Therapy</h1>
+        <p class="hero-lead">Creating Safety, Trust &amp; Nervous System Awareness in Massage Therapy Practice.</p>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-icon"><img src="img/format_calendar.png" alt="Format"></span><span><b>FORMAT</b><small>Two-Day in person</small></span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-icon"><img src="img/instruction_target.png" alt="Instruction"></span><span><b>INSTRUCTION</b><small>10 hours</small></span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-icon"><img src="img/assessment_check.png" alt="Assessment"></span><span><b>ASSESSMENT</b><small>15 questions | 80% passing score</small></span></div>
+        </div>
+        <div class="hero-actions"><a class="button button-primary" href="#course">Learn about the course</a><button class="button button-outline contact-trigger">Apply for the course</button></div>
       </div>
-      <div class="hero-actions"><a class="button button-primary" href="#course">Learn about the course</a><button class="button button-outline contact-trigger">Apply for the course</button></div>
+      
     </div>
-    <div class="hero-visual">
-      <div class="photo-placeholder large">Photo of massage therapist</div>
-      <div class="quote-badge">Supporting<br>massage therapists<br>to create safer,<br>more inclusive<br>client-centered care<br>for every body.</div>
-      <div class="leaf-decoration leaf-one">❧</div><div class="leaf-decoration leaf-two">❧</div>
-    </div>
+  </div>
   </div>
 </section>
 
@@ -45,9 +62,12 @@
   <div class="container split-section">
     <div class="section-heading centered">
       <p class="section-kicker">ABOUT THE COURSE</p><h2>Learn the why behind safer care.</h2><span class="heading-ornament">— ❧ —</span>
-      <p>This two-day, 10 CE hour course helps massage therapists bring trauma-informed principles into everyday practice. You’ll learn how trauma affects the body and nervous system, and how to create safety, choice and empowerment for every client.</p>
+      <p>This practical continuing-education course helps massage therapists integrate trauma-informed principles into
+everyday clinical practice. Participants examine how trauma, violence, adverse experiences, chronic stress, pain,
+medical experiences, and nervous-system responses may influence therapeutic touch, communication, body
+awareness, trust, consent, boundaries, and treatment participation.</p>
     </div>
-    <div class="photo-placeholder medium">Photo of people learning course?</div>
+    <div class="photo-placeholder medium"><img src="img/mssg_cource.png" alt="Massage therapy course"></div>
   </div>
 </section>
 
@@ -55,11 +75,11 @@
   <div class="container">
     <div class="section-heading light centered"><p class="section-kicker">WHY THIS COURSE MATTERS</p><h2>Practical ideas you can use immediately.</h2><span class="heading-ornament">— ❧ —</span></div>
     <div class="benefit-grid">
-      <article><div class="line-icon">♡</div><h3>Trauma-Informed Approach</h3><p>Safety, trust and choice at the center of care.</p></article>
-      <article><div class="line-icon">◌</div><h3>Nervous System Awareness</h3><p>Understand trauma’s impact and support regulation.</p></article>
-      <article><div class="line-icon">♧</div><h3>Safety, Trust &amp; Empowerment</h3><p>Promote autonomy, boundaries and healing.</p></article>
-      <article><div class="line-icon">◯</div><h3>Inclusive &amp; Client-Centered Care</h3><p>Practical strategies for diverse clients and needs.</p></article>
-      <article><div class="line-icon">▤</div><h3>10 CE Hours</h3><p>Complete the course and receive your certificate.</p></article>
+      <article><div class="line-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-shield-check"></use></svg></div><h3>Trauma-Informed Approach</h3><p>Safety, trust and choice at the center of care.</p></article>
+      <article><div class="line-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-brain"></use></svg></div><h3>Nervous System Awareness</h3><p>Understand trauma’s impact and support regulation.</p></article>
+      <article><div class="line-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-hand-heart"></use></svg></div><h3>Safety, Trust &amp; Empowerment</h3><p>Promote autonomy, boundaries and healing.</p></article>
+      <article><div class="line-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-users"></use></svg></div><h3>Inclusive &amp; Client-Centered Care</h3><p>Practical strategies for diverse clients and needs.</p></article>
+      <article><div class="line-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-book-open"></use></svg></div><h3>10 CE Hours</h3><p>Complete the course and receive your certificate.</p></article>
     </div>
   </div>
 </section>
@@ -69,15 +89,28 @@
     <div class="section-heading centered"><p class="section-kicker">THE COURSE</p><h2>What you will learn</h2><span class="heading-ornament">— ❧ —</span></div>
     <div class="course-grid">
       <div class="learning-list">
-        <ul><li>How trauma impacts the body and nervous system</li><li>Strategies to create safety, trust and choice</li><li>Trauma- and violence-informed care for all clients</li><li>Effective communication, consent and boundaries</li></ul>
-        <ul><li>Professional self-care and nervous system regulation</li><li>Documentation that reflects trauma-informed care</li><li>Staying within scope: we are massage therapists, not trauma therapists</li></ul>
+        <ul><li>Why Trauma-Informed Massage Therapy Matters</li>
+          <li>Understanding Trauma &amp; the Nervous System</li>
+          <li>Reintroducing Therapeutic Touch</li></ul>
+        <ul><li>Trauma- and Violence-Informed Care for Children &amp; Youth</li>
+          <li>Consent, Communication &amp; Body Autonomy</li>
+          <li>Creating Safe Treatment Environments</li></ul>
+        <ul><li>Grounding, Regulation &amp; Recognizing Dissociation</li>
+          <li>Staying Within Scope: We Are Massage Therapists, Not Trauma Therapists</li>
+          <li>Trauma-Informed Documentation &amp; Clinical Charting</li></ul>
+        <ul><li>Therapist Self-Check &amp; Regulation</li>
+          <li>Clinical Application &amp; Case Studies</li>
+          <li>Skills Practice, Role Play &amp; Competency Development</li></ul>
+        
       </div>
       <aside class="course-card">
         <p class="card-label">COURSE DETAILS</p>
-        <div class="detail-row"><span>◷</span><p><b>10 CE instructional hours</b><small>Two-Day Course</small></p></div>
-        <div class="detail-row"><span>◎</span><p><b>Who this course is for</b><small>Registered Massage Therapists</small></p></div>
-        <div class="detail-row"><span>✦</span><p><b>Evidence-informed</b><small>Practical • Applicable • Client-Centered</small></p></div>
-        <div class="detail-row"><span>▤</span><p><b>What you receive</b><small>Comprehensive workbook • Resources • Certificate of Completion</small></p></div>
+        <div class="detail-row"><svg class="ui-icon" aria-hidden="true"><use href="#icon-clock"></use></svg><p><b>10 CE instructional hours</b><small>Two-Day Course</small></p></div>
+        <div class="detail-row"><svg class="ui-icon" aria-hidden="true"><use href="#icon-user"></use></svg><p><b>Who this course is for</b><small>Registered Massage Therapists</small></p></div>
+        <div class="detail-row"><svg class="ui-icon" aria-hidden="true"><use href="#icon-badge-check"></use></svg><p><b>Evidence-informed</b><small>Practical • Applicable • Client-Centered</small></p></div>
+        <div class="detail-row"><svg class="ui-icon" aria-hidden="true"><use href="#icon-book-check"></use></svg><p><b>What you receive</b><small>Comprehensive workbook • Resources • Certificate of Completion</small></p></div>
+        <div class="detail-row"><svg class="ui-icon" aria-hidden="true"><use href="#icon-hand-heart"></use></svg><p><b>Consent-led therapeutic touch</b><small>Explore communication, choice, boundaries, and body autonomy.</small></p></div>
+        <div class="detail-row"><svg class="ui-icon" aria-hidden="true"><use href="#icon-brain"></use></svg><p><b>Nervous system awareness</b><small>Practice grounding and regulation, and learn to recognize dissociation within massage therapy scope.</small></p></div>
       </aside>
     </div>
   </div>
@@ -85,30 +118,57 @@
 
 <section class="audience section-shell">
   <div class="container">
-    <div class="section-heading centered"><p class="section-kicker">IS THIS COURSE FOR YOU?</p><h2>You may be ready for this course if you are… Comment: If you have requrements for people who can apply for course</h2><span class="heading-ornament">— ❧ —</span></div>
+    <div class="section-heading centered"><p class="section-kicker">IS THIS COURSE FOR YOU?</p><h2>You may be ready for this course if you are…</h2><span class="heading-ornament">— ❧ —</span></div>
     <div class="audience-grid">
-      <article><span class="round-icon">♙</span><p>A registered massage therapist looking to expand your knowledge</p></article>
-      <article><span class="round-icon">♡</span><p>Passionate about creating safer, more inclusive care</p></article>
-      <article><span class="round-icon">♧</span><p>Want practical tools you can use in your everyday practice</p></article>
-      <article><span class="round-icon">▤</span><p>Interested in earning 10 CE hours with a trusted provider</p></article>
+      <article><span class="round-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-user"></use></svg></span><p>A registered massage therapist looking to expand your knowledge</p></article>
+      <article><span class="round-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-shield-check"></use></svg></span><p>Passionate about creating safer, more inclusive care</p></article>
+      <article><span class="round-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-presentation"></use></svg></span><p>Want practical tools you can use in your everyday practice</p></article>
+      <article><span class="round-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-award"></use></svg></span><p>Interested in earning 10 CE hours with a trusted provider</p></article>
     </div>
   </div>
 </section>
 
 <section class="instructor section-shell">
   <div class="container split-section instructor-grid">
-    <div class="photo-placeholder instructor-photo">Photo of Crystal?</div>
+    <div class="photo-placeholder instructor-photo"><img src="img/Crystal.png" alt="Crystal, course instructor"></div>
     <div>
-      <div class="section-heading"><p class="section-kicker">MEET YOUR INSTRUCTOR</p><h2>Experience meets compassionate education.</h2><span class="heading-ornament">— ❧ —</span>
-      <p>Experienced massage therapist, educator and advocate for trauma-informed care. Dedicated to empowering therapists with knowledge, compassion and practical skills.</p></div>
-      <div class="instructor-facts"><div><span>✦</span><b>Years of Clinical Experience</b></div><div><span>◷</span><b>Specialized Training</b></div><div><span>❧</span><b>Trusted Educator &amp; Speaker</b></div></div>
+      <div class="section-heading"><p class="section-kicker">MEET YOUR INSTRUCTOR - Crystal Gartman, RMT</p><h2>Experience meets compassionate education.</h2><span class="heading-ornament">— ❧ —</span>
+      <section class="instructor-profile">
+    <p>
+        <strong>Crystal Gartman is a Registered Massage Therapist and Clinical Supervisor
+        with 16+ years of hands-on clinical experience.</strong>
+        She brings extensive expertise in therapeutic and sports massage, deep tissue
+        and trigger point techniques, injury-focused care, and clinical assessment.
+    </p>
+
+    <p>
+        A graduate of the <strong>2,200-hour Massage Therapy Diploma program at
+        MH Vicars School of Massage Therapy</strong>, Crystal has worked extensively
+        with <strong>elite and professional athletes in MMA, Brazilian Jiu-Jitsu,
+        wrestling, hockey, and triathlon.</strong>
+    </p>
+
+    <p>
+        As a <strong>Clinical Supervisor at the Alberta College of Massage Therapy
+        (ACMT)</strong>, she helps students develop practical hands-on skills,
+        clinical reasoning, and confidence.
+    </p>
+
+    <p>
+        Crystal is also the <strong>developer and instructor of Trauma-Informed
+        Massage Therapy</strong>, combining her clinical experience with specialized
+        training to teach therapists how to create
+        <strong>safe, ethical, and client-centered treatment experiences.</strong>
+    </p>
+</section></div>
+      <div class="instructor-facts"><div><span><svg class="ui-icon" aria-hidden="true"><use href="#icon-clock"></use></svg></span><b>16+ Years of Clinical Experience</b></div><div><span><svg class="ui-icon" aria-hidden="true"><use href="#icon-graduation"></use></svg></span><b>Specialized Training</b></div><div><span><svg class="ui-icon" aria-hidden="true"><use href="#icon-presentation"></use></svg></span><b>Trusted Educator &amp; Speaker</b></div></div>
     </div>
   </div>
 </section>
 
 <section class="testimonials section-shell" id="testimonials">
   <div class="container testimonials-grid">
-    <div><div class="section-heading"><p class="section-kicker">WHAT THERAPISTS ARE SAYING</p><h2>Real experiences from practitioners. Comment: We can fake them or just delete this part</h2><span class="heading-ornament">— ❧ —</span></div>
+    <div><div class="section-heading"><p class="section-kicker">WHAT THERAPISTS ARE SAYING</p><h2>Real experiences from practitioners.</h2><span class="heading-ornament">— ❧ —</span></div>
       <div class="testimonial-cards">
         <article><span class="quote-mark">“</span><p>This course completely changed how I show up for my clients. Practical, inspiring and so needed.</p><b>— Sarah M., RMT</b></article>
         <article><span class="quote-mark">“</span><p>I feel more confident and prepared to create safe spaces for everyone.</p><b>— James L., RMT</b></article>
@@ -130,12 +190,13 @@
 </section>
 </main>
 
+<div class="form-toast" id="formToast" role="status" aria-live="polite">Thank you for your interest, We will contact you soon.</div>
+
 <footer class="site-footer">
   <div class="container footer-main">
     <div class="footer-brand"><a class="brand brand-light" href="#home"><span class="brand-mark"><i></i><i></i><i></i></span><span><b>GARTMAN</b><small>MASSAGE EDUCATION</small></span></a><p>Empowering therapists.<br>Transforming care.</p></div>
-    <div class="footer-column"><h3>QUICK LINKS</h3><a href="#home">Home</a><a href="#about">About</a><a href="#course">Course</a><a href="#testimonials">Feedbacks</a><a href="#contact">Contact</a></div>
-    <div class="footer-column"><h3>COURSE</h3><a href="#course">Overview</a><a href="#course">What You’ll Learn</a><a href="#course">Course Details</a></div>
-    <div class="footer-column"><h3>CONTACT</h3><a href="tel:+15551234567">☎ &nbsp;(555) 123-4567</a><a href="mailto:info@gartmaneducation.com">✉ &nbsp;info@gartmaneducation.com</a><span>⌖ &nbsp; Your City, State</span></div>
+    <div class="footer-column"><h3>QUICK LINKS</h3><a href="#home">Home</a><a href="#about">About</a><a href="#course">Course</a><a href="#testimonials">Feedbacks</a></div>
+    <div class="footer-column"><h3>CONTACT</h3><a class="footer-contact-link" href="mailto:cncgartman@gmail.com"><svg class="ui-icon" aria-hidden="true"><use href="#icon-mail"></use></svg>cncgartman@gmail.com</a><span class="footer-location"><svg class="ui-icon" aria-hidden="true"><use href="#icon-map-pin"></use></svg>Edmonton, Alberta, Canada</span></div>
   </div>
   <div class="container footer-bottom"><span>© 2026 Gartman Massage Education. All rights reserved.</span>
 </footer>
@@ -149,7 +210,7 @@
       <div class="form-group"><label for="modalEmail">Email</label><input id="modalEmail" type="email" name="email" placeholder="you@example.com" required></div>
       <div class="form-group"><label for="modalPhone">Phone Number</label><input id="modalPhone" type="tel" name="phone" placeholder="Your phone number"></div>
       <div class="form-group"><label for="modalComment">Comment</label><textarea id="modalComment" name="comment" rows="5" placeholder="How can we help?"></textarea></div>
-      <button class="send-button" type="submit">Send</button>
+      <button class="send-button" type="submit">Send</button><p class="form-note modal-form-note" id="modalFormNote" aria-live="polite"></p>
     </form>
   </div>
 </div>
