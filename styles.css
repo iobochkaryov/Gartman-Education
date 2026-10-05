@@ -1,0 +1,1904 @@
+/* =========================================================
+   GARTMAN MASSAGE EDUCATION
+   Main stylesheet
+   ========================================================= */
+
+
+/* =========================================================
+   1. DESIGN TOKENS
+   ========================================================= */
+
+:root {
+    --cream: #f5f1e8;
+    --cream-light: #fffdf8;
+
+    --green: #43408e;
+    --green-dark: #151853;
+    --green-soft: #697e8c;
+
+    --brown: #162b6c;
+    --gold: #162b6c;
+
+    --text: #17231b;
+    --muted: #070707;
+    --border: #d5cec0;
+    --white: #ffffff;
+
+    --shadow: 0 18px 50px rgba(29, 53, 34, 0.10);
+
+    --container-width: 1180px;
+}
+
+
+/* =========================================================
+   2. RESET & GLOBAL STYLES
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+.icon-definitions {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.ui-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 auto;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 84px;
+}
+
+body {
+    margin: 0;
+    background: var(--cream-light);
+    color: var(--text);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+a {
+    color: #36365e;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+
+/* =========================================================
+   3. REUSABLE LAYOUT
+   ========================================================= */
+
+.container {
+    width: min(
+        var(--container-width),
+        calc(100% - 64px)
+    );
+
+    margin: 0 auto;
+}
+
+.section-shell {
+    padding: 92px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   4. TYPOGRAPHY
+   ========================================================= */
+
+.hero h1,
+.section-heading h2 {
+    margin: 0;
+
+    color: var(--green-dark);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 500;
+}
+
+.hero h1 {
+    font-size: clamp(46px, 5vw, 72px);
+    line-height: 0.98;
+    letter-spacing: -2px;
+}
+
+.section-heading h2 {
+    font-size: clamp(34px, 4vw, 49px);
+    line-height: 1.08;
+}
+
+.eyebrow,
+.section-kicker {
+    margin: 0 0 13px;
+
+    color: var(--green-soft);
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.heading-ornament {
+    display: block;
+
+    margin-top: 12px;
+
+    color: var(--gold);
+
+    font-size: 13px;
+    letter-spacing: 4px;
+}
+
+.section-heading.centered {
+    text-align: center;
+}
+
+.section-heading > p:not(.section-kicker) {
+    max-width: 650px;
+    margin-top: 20px;
+
+    color: var(--muted);
+}
+
+.section-heading.centered > p:not(.section-kicker) {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+/* =========================================================
+   5. BUTTONS
+   ========================================================= */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 45px;
+    padding: 10px 25px;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    border: 1px solid var(--green);
+    background: var(--green);
+    color: var(--white);
+}
+
+.button-primary:hover {
+    background: var(--green-dark);
+}
+
+.button-outline {
+    border: 1px solid var(--green-soft);
+    background: transparent;
+    color: var(--green-dark);
+}
+
+
+/* =========================================================
+   6. HEADER & NAVIGATION
+   ========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+
+    background: rgba(255, 253, 248, 0.96);
+
+    border-bottom: 1px solid rgba(213, 206, 192, 0.8);
+
+    backdrop-filter: blur(12px);
+}
+
+.nav-wrap {
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* ---------- Brand ---------- */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+.brand > span:last-child {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1;
+}
+
+.brand b {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    letter-spacing: 2px;
+}
+
+.brand small {
+    margin-top: 5px;
+
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.brand-mark {
+    position: relative;
+
+    width: 28px;
+    height: 36px;
+}
+
+.brand-mark i {
+    position: absolute;
+
+    width: 10px;
+    height: 20px;
+
+    border: 2px solid currentColor;
+    border-radius: 100% 0 100% 0;
+}
+
+.brand-mark i:nth-child(1) {
+    top: 3px;
+    left: 2px;
+
+    transform: rotate(-35deg);
+}
+
+.brand-mark i:nth-child(2) {
+    top: 0;
+    left: 13px;
+
+    transform: rotate(28deg);
+}
+
+.brand-mark i:nth-child(3) {
+    top: 16px;
+    left: 8px;
+
+    transform: rotate(-20deg);
+}
+
+
+/* ---------- Main navigation ---------- */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+
+    font-size: 13px;
+}
+
+.main-nav > a {
+    position: relative;
+
+    padding: 27px 0 24px;
+}
+
+.main-nav > a::after {
+    content: "";
+
+    position: absolute;
+    right: 0;
+    bottom: 16px;
+    left: 0;
+
+    height: 2px;
+
+    background: var(--gold);
+
+    transform: scaleX(0);
+
+    transition: transform 0.25s ease;
+}
+
+.main-nav > a:hover::after,
+.main-nav > a.active::after {
+    transform: scaleX(1);
+}
+
+.nav-contact {
+    padding: 11px 22px;
+
+    border: 0;
+    border-radius: 4px;
+
+    background: var(--brown);
+    color: var(--white);
+
+    cursor: pointer;
+}
+
+.nav-contact:hover {
+    background: #754529;
+}
+
+
+/* ---------- Mobile menu button ---------- */
+
+.mobile-nav-toggle {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.mobile-nav-toggle span {
+    display: block;
+
+    width: 20px;
+    height: 2px;
+
+    margin: 4px auto;
+
+    background: var(--green);
+}
+
+
+/* =========================================================
+   7. HERO SECTION
+   ========================================================= */
+
+.hero {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background:
+        radial-gradient(
+            circle at 8% 20%,
+            rgba(163, 106, 67, 0.07),
+            transparent 24%
+        ),
+        var(--cream-light);
+}
+
+.hero-grid {
+    min-height: 590px;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    gap: 70px;
+}
+
+.hero-lead {
+    max-width: 540px;
+    position: relative;
+
+    margin: 25px 0 31px;
+
+    color: #000;
+
+    font-size: 18px;
+}
+
+.hero-main {
+    position: relative;
+    width: 100%;
+}
+
+.hero-main::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background:
+        linear-gradient(to right, transparent 55%, rgba(18, 19, 18, 0.24)),
+        url("../img/mssg_main.png") center / 100% 100% no-repeat;
+    content: "";
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 100%);
+}
+
+.hero-main > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ---------- Hero statistics ---------- */
+
+.hero-stats {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.stat-icon {
+    width: 37px;
+    height: 37px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+
+    color: var(--green);
+
+    font-size: 19px;
+}
+
+.stat-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.stat b,
+.stat small {
+    display: block;
+}
+
+.stat b {
+    font-size: 10px;
+    letter-spacing: 0.7px;
+}
+
+.stat small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 42px;
+
+    background: var(--border);
+}
+
+
+/* ---------- Hero buttons ---------- */
+
+.hero-actions {
+    display: flex;
+
+    gap: 13px;
+
+    margin-top: 35px;
+}
+
+
+/* ---------- Hero image ---------- */
+
+.hero-visual {
+    position: relative;
+
+    min-height: 520px;
+}
+
+.photo-placeholder {
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+.photo-placeholder.large {
+    position: absolute;
+    inset: 0 0 0 8%;
+    min-height: 520px; 
+}
+
+.photo-placeholder.large img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* ---------- Quote badge ---------- */
+
+.quote-badge {
+    position: absolute;
+    top: 40%;
+    left: -18px;
+
+    width: 172px;
+    height: 172px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 25px;
+
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+
+    background: rgba(255, 253, 248, 0.91);
+
+    box-shadow: 0 8px 25px rgba(29, 53, 34, 0.08);
+
+    text-align: center;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.leaf-decoration {
+    position: absolute;
+
+    color: var(--green-soft);
+
+    font-size: 70px;
+
+    transform: rotate(-20deg);
+}
+
+.leaf-one {
+    right: 10px;
+    bottom: -26px;
+}
+
+.leaf-two {
+    top: 16px;
+    left: 15px;
+
+    font-size: 45px;
+}
+
+
+/* =========================================================
+   8. ABOUT SECTION
+   ========================================================= */
+
+.about {
+    background: var(--cream);
+}
+
+.split-section {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+
+    gap: 80px;
+}
+
+.photo-placeholder.medium {
+    position: relative;
+    overflow: hidden;
+    min-height: 310px;
+}
+
+.photo-placeholder.medium img {
+    position: absolute;
+    inset: 0;
+    width: 110%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   9. BENEFITS SECTION
+   ========================================================= */
+
+.benefits {
+    padding: 80px 0;
+
+    background: var(--green);
+
+    color: var(--white);
+}
+
+.light h2,
+.light .section-kicker,
+.benefits .heading-ornament {
+    color: var(--white);
+}
+
+.benefits .line-icon {
+    color: var(--white);
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    margin-top: 50px;
+}
+
+.benefit-grid article {
+    min-height: 205px;
+
+    padding: 0 27px;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.35);
+
+    text-align: center;
+}
+
+.benefit-grid article:last-child {
+    border-right: 0;
+}
+
+.line-icon {
+    display: grid;
+    place-items: center;
+    height: 55px;
+
+    color: var(--gold);
+}
+
+.line-icon .ui-icon {
+    width: 38px;
+    height: 38px;
+}
+
+.benefit-grid h3 {
+    margin: 12px 0 8px;
+
+    font-size: 13px;
+    line-height: 1.35;
+    text-transform: uppercase;
+}
+
+.benefit-grid p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   10. COURSE SECTION
+   ========================================================= */
+
+.course {
+    background: var(--cream-light);
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    align-items: stretch;
+
+    gap: 34px;
+
+    margin-top: 52px;
+}
+
+.photo-placeholder.tall {
+    min-height: 390px;
+
+    border-radius: 4px;
+}
+
+
+/* ---------- Learning list ---------- */
+
+.learning-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+.learning-list ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.learning-list li {
+    position: relative;
+
+    padding-left: 23px;
+
+    margin-bottom: 18px;
+
+    font-size: 18px;
+}
+
+.learning-list li::before {
+    content: "◆";
+
+    position: absolute;
+    top: 2px;
+    left: 0;
+
+    color: var(--green-soft);
+
+    font-size: 8px;
+}
+
+
+/* ---------- Course details card ---------- */
+
+.course-card {
+    padding: 25px 22px;
+
+    border-radius: 7px;
+
+    background: #efebe2;
+}
+
+.card-label {
+    margin: 0 0 18px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.detail-row {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.detail-row > .ui-icon {
+    color: var(--gold);
+
+    width: 22px;
+    height: 22px;
+}
+
+.detail-row p {
+    margin: 0;
+}
+
+.detail-row b,
+.detail-row small {
+    display: block;
+}
+
+.detail-row b {
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.detail-row small {
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   11. AUDIENCE SECTION
+   ========================================================= */
+
+.audience {
+    background: var(--cream);
+}
+
+.audience-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    margin-top: 48px;
+}
+
+.audience-grid article {
+    padding: 10px 35px;
+
+    border-right: 1px solid var(--border);
+
+    text-align: center;
+}
+
+.audience-grid article:last-child {
+    border-right: 0;
+}
+
+.round-icon {
+    width: 55px;
+    height: 55px;
+
+    display: grid;
+    place-items: center;
+
+    margin: 0 auto 15px;
+
+    border: 1px solid var(--green-soft);
+    border-radius: 50%;
+
+    color: var(--green);
+
+}
+
+.round-icon .ui-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.audience-grid p {
+    margin: 0;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   12. INSTRUCTOR SECTION
+   ========================================================= */
+
+.instructor {
+    background: var(--cream-light);
+}
+
+.instructor .heading-ornament {
+    text-align: center;
+}
+
+.instructor .section-heading h2 {
+    text-align: center;
+}
+
+.instructor-grid {
+    grid-template-columns: 0.9fr 1.1fr;
+}
+
+.instructor-photo {
+    position: relative;
+    min-height: 360px;
+
+    border: 1px solid var(--gold);
+    border-radius: 5px;
+    background: var(--cream);
+    box-shadow: 0 12px 32px rgba(29, 53, 34, 0.12);
+    overflow: hidden;
+}
+
+.instructor-photo::before {
+    position: absolute;
+    z-index: 1;
+    inset: 7px;
+
+    border: 1px solid rgba(22, 43, 108, 0.35);
+    border-radius: 2px;
+
+    content: "";
+    pointer-events: none;
+}
+
+.instructor-photo img {
+    inset: 14px;
+    z-index: 0;
+
+    width: calc(100% - 28px);
+    height: calc(100% - 28px);
+
+    object-fit: contain;
+}
+
+.instructor-facts {
+    display: flex;
+
+    gap: 25px;
+
+    margin-top: 30px;
+}
+
+.instructor-facts div {
+    display: flex;
+    align-items: center;
+
+    max-width: 180px;
+
+    gap: 9px;
+}
+
+.instructor-facts span {
+    color: var(--gold);
+
+    display: grid;
+    place-items: center;
+}
+
+.instructor-facts .ui-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.instructor-facts b {
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   13. TESTIMONIALS SECTION
+   ========================================================= */
+
+.testimonials {
+    background: var(--cream);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+
+    gap: 55px;
+    text-align: center;
+}
+
+.testimonial-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 13px;
+
+    margin-top: 35px;
+}
+
+.testimonial-cards article {
+    padding: 24px 20px 21px;
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+}
+
+.quote-mark {
+    color: var(--gold);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+}
+
+.testimonial-cards p {
+    margin: 2px 0 15px;
+
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.testimonial-cards b {
+    font-size: 10px;
+}
+
+.testimonial-dots {
+    margin-top: 15px;
+
+    color: var(--green-soft);
+
+    font-size: 9px;
+    letter-spacing: 5px;
+
+    text-align: center;
+}
+
+.testimonial-photo {
+    min-height: 370px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   14. CONTACT SECTION
+   ========================================================= */
+
+.contact-section {
+    padding: 75px 0;
+
+    background:
+        linear-gradient(
+            rgba(143, 172, 215, 0.82),
+            rgba(34, 72, 128, 0.82)
+        ),
+        radial-gradient(
+            circle at 30% 30%,
+            #b9c2ad,
+            #68755f
+        );
+
+    color: var(--white);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr 0.48fr;
+    align-items: center;
+
+    gap: 40px;
+}
+
+.contact-intro .section-kicker {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.contact-intro h2 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 40px;
+    line-height: 1.1;
+}
+
+.contact-intro > p:last-child {
+    max-width: 310px;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    font-size: 13px;
+}
+
+
+/* ---------- Inline contact form ---------- */
+
+.inline-contact-form {
+    display: grid;
+
+    gap: 11px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 11px;
+}
+
+.inline-contact-form label span {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    overflow: hidden;
+
+    clip: rect(0 0 0 0);
+}
+
+.inline-contact-form input,
+.inline-contact-form textarea {
+    width: 100%;
+
+    padding: 10px 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 5px;
+
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--text);
+
+    outline: 0;
+}
+
+.inline-contact-form textarea {
+    resize: vertical;
+}
+
+.button-light {
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    background: var(--green-dark);
+    color: var(--white);
+}
+
+.form-note {
+    min-height: 18px;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    font-size: 11px;
+}
+
+.form-toast {
+    position: fixed;
+    z-index: 1100;
+    right: 20px;
+    bottom: 20px;
+
+    max-width: calc(100% - 40px);
+    padding: 14px 20px;
+
+    border: 1px solid var(--gold);
+    border-radius: 5px;
+    background: var(--cream-light);
+    box-shadow: var(--shadow);
+    color: var(--green-dark);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.form-toast.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.button-light:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+
+/* ---------- Contact image ---------- */
+
+.contact-photo {
+    min-height: 235px;
+
+    border-color: rgba(255, 255, 255, 0.25);
+
+    background: rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================================================
+   15. FOOTER
+   ========================================================= */
+
+.site-footer {
+    background: var(--green-dark);
+    color: var(--white);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1.35fr 0.7fr 0.8fr 1fr;
+
+    gap: 60px;
+
+    padding: 52px 0 45px;
+}
+
+.brand-light {
+    color: var(--white);
+}
+
+.footer-brand > p {
+    margin: 19px 0;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 12px;
+}
+
+.socials {
+    display: flex;
+
+    gap: 8px;
+}
+
+.socials a {
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50%;
+
+    font-size: 12px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.footer-column h3 {
+    margin: 0 0 9px;
+
+    font-size: 10px;
+    letter-spacing: 1.4px;
+}
+
+.footer-column a,
+.footer-column span {
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 11px;
+}
+
+.footer-contact-link,
+.footer-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-column .ui-icon {
+    width: 15px;
+    height: 15px;
+}
+
+.footer-column a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 17px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   16. CONTACT MODAL
+   ========================================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(15, 25, 18, 0.58);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0s linear 0.25s;
+}
+
+.modal-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0s linear 0s;
+}
+
+.contact-modal {
+    position: relative;
+
+    width: min(520px, 100%);
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 34px 36px 30px;
+
+    border: 1px solid #c5bcaa;
+    border-radius: 16px;
+
+    background: var(--cream-light);
+
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+
+    opacity: 0;
+
+    transform: translateY(35px) scale(0.94);
+
+    transition:
+        transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+        opacity 0.25s ease;
+}
+
+.modal-overlay.is-open .contact-modal {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+}
+
+
+/* ---------- Modal close button ---------- */
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.modal-close::before,
+.modal-close::after {
+    content: "";
+
+    position: absolute;
+
+    width: 22px;
+    height: 2px;
+
+    top: 50%;
+    left: 50%;
+
+    background: var(--green);
+
+    transform-origin: center;
+
+    transition: transform 0.3s ease;
+}
+
+.modal-close::before {
+    transform:
+        translate(-50%, -50%)
+        rotate(45deg);
+}
+
+.modal-close::after {
+    transform:
+        translate(-50%, -50%)
+        rotate(-45deg);
+}
+
+.modal-close:hover {
+    background: rgba(40, 70, 45, 0.09);
+}
+
+.modal-close:hover::before {
+    transform:
+        translate(-50%, -50%)
+        rotate(135deg);
+}
+
+.modal-close:hover::after {
+    transform:
+        translate(-50%, -50%)
+        rotate(45deg);
+}
+
+
+/* ---------- Modal typography ---------- */
+
+.contact-modal h2 {
+    margin: 0;
+
+    color: var(--green-dark);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+}
+
+.modal-description {
+    margin: 7px 0 24px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+}
+
+
+/* ---------- Modal form ---------- */
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--green-dark);
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    padding: 12px 13px;
+
+    border: 1px solid #c9c1b2;
+    border-radius: 7px;
+
+    background: #fffdf8;
+    color: var(--text);
+
+    outline: 0;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--green-soft);
+
+    box-shadow:
+        0 0 0 3px rgba(83, 104, 78, 0.13);
+}
+
+.form-group textarea {
+    min-height: 110px;
+
+    resize: vertical;
+}
+
+.send-button {
+    width: 100%;
+
+    padding: 12px 22px;
+
+    border: 1px solid var(--green);
+    border-radius: 6px;
+
+    background: var(--green);
+    color: var(--white);
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.send-button:hover {
+    background: var(--green-dark);
+}
+
+.send-button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.modal-form-note {
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   17. RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .main-nav {
+        gap: 16px;
+    }
+
+    .benefit-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .benefit-grid article:nth-child(3) {
+        border-right: 0;
+    }
+
+    .benefit-grid article:nth-child(n + 4) {
+        margin-top: 35px;
+    }
+
+    .course-grid {
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    }
+
+    .course-card {
+        grid-column: 2;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr 1.3fr;
+    }
+
+    .contact-photo {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   18. RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .container {
+        width: min(
+            var(--container-width),
+            calc(100% - 38px)
+        );
+    }
+
+    /* ---------- Mobile navigation ---------- */
+
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: calc(100% + 1px);
+        right: 19px;
+        left: 19px;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 12px;
+
+        border: 1px solid var(--border);
+
+        background: var(--cream-light);
+
+        box-shadow: var(--shadow);
+    }
+
+    .main-nav.is-open {
+        display: flex;
+    }
+
+    .main-nav > a {
+        padding: 12px;
+    }
+
+    .main-nav > a::after {
+        display: none;
+    }
+
+    .nav-contact {
+        margin-top: 7px;
+    }
+
+
+    /* ---------- General sections ---------- */
+
+    .hero-grid,
+    .split-section,
+    .instructor-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .hero {
+        padding-top: 55px;
+    }
+
+    .hero-grid {
+        min-height: auto;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hero-copy {
+        min-width: 0;
+    }
+
+    .hero-visual {
+        min-height: 420px;
+    }
+
+    .photo-placeholder.large {
+        min-height: 420px;
+    } 
+    .quote-badge {
+        left: -5px;
+    }
+
+
+    /* ---------- Benefits ---------- */
+
+    .benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .benefit-grid article:nth-child(2) {
+        border-right: 0;
+    }
+
+    .benefit-grid article:nth-child(3) {
+        border-right: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+
+    /* ---------- Course ---------- */
+
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-card {
+        grid-column: auto;
+    }
+
+    .learning-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ---------- Audience ---------- */
+
+    .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .audience-grid article:nth-child(2) {
+        border-right: 0;
+    }
+
+    .audience-grid article:nth-child(n + 3) {
+        margin-top: 30px;
+    }
+
+
+    /* ---------- Contact ---------- */
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-photo {
+        display: grid;
+    }
+
+
+    /* ---------- Footer ---------- */
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 35px;
+    }
+}
+
+
+/* =========================================================
+   19. RESPONSIVE — SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 560px) {
+
+    .section-shell {
+        padding: 65px 0;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-lead {
+        font-size: 16px;
+    }
+
+
+    /* ---------- Hero ---------- */
+
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+        gap: 16px 12px;
+    }
+
+    .hero-stats .stat:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .hero-stats .stat-divider {
+        display: none;
+    }
+
+    .hero-stats .stat {
+        min-width: 0;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .hero-stats .stat-icon {
+        flex: 0 0 34px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .stat-divider {
+        display: none;
+    }
+
+    .stat small {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-visual,
+    .photo-placeholder.large {
+        min-height: 330px;
+    }
+
+    .quote-badge {
+        width: 145px;
+        height: 145px;
+
+        padding: 18px;
+
+        font-size: 10px;
+    }
+
+
+    /* ---------- Benefits ---------- */
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-grid article,
+    .benefit-grid article:nth-child(3) {
+        padding-bottom: 30px;
+
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .benefit-grid article:last-child {
+        border-bottom: 0;
+    }
+
+    .benefit-grid article + article {
+        padding-top: 30px;
+    }
+
+    /* ---------- Testimonials ---------- */
+
+    .testimonial-cards {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ---------- Audience ---------- */
+
+    .audience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .audience-grid article {
+        padding: 20px 15px;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .audience-grid article:last-child {
+        border-bottom: 0;
+    }
+
+    .audience-grid article:nth-child(n + 3) {
+        margin-top: 0;
+    }
+
+
+    /* ---------- Instructor ---------- */
+
+    .instructor-facts {
+        flex-direction: column;
+
+        gap: 14px;
+    }
+
+
+    /* ---------- Footer ---------- */
+
+    .footer-main {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+
+    /* ---------- Contact modal ---------- */
+
+    .contact-modal {
+        padding: 30px 21px 24px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
